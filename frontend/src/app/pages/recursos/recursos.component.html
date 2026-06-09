@@ -1,0 +1,96 @@
+<header class="page-header">
+  <div>
+    <p class="eyebrow">Recursos operacionais</p>
+    <h1>Equipes, veiculos e pontos</h1>
+  </div>
+  <button type="button" class="button secondary" (click)="carregar()">Atualizar</button>
+</header>
+
+@if (erro) {
+  <div class="alert">{{ erro }}</div>
+}
+
+<section class="triple">
+  <div class="panel">
+    <div class="panel-header"><h2>Pontos</h2></div>
+    <form class="form-grid" [formGroup]="pontoForm" (ngSubmit)="salvarPonto()">
+      <label>Nome<input formControlName="nome" /></label>
+      <label>Tipo
+        <select formControlName="tipo">
+          @for (item of tiposPonto; track item) {
+            <option [value]="item">{{ label(item) }}</option>
+          }
+        </select>
+      </label>
+      <label>Setor<input formControlName="setor" /></label>
+      <label>Endereco<input formControlName="endereco" /></label>
+      <label>CEP<input formControlName="cep" /></label>
+      <label>Telefone<input formControlName="telefone" /></label>
+      <button class="button" type="submit">Salvar ponto</button>
+    </form>
+    <div class="compact-list">
+      @for (ponto of pontos; track ponto.id) {
+        <article><strong>{{ ponto.nome }}</strong><span>{{ label(ponto.tipo) }} · {{ ponto.setor }}</span></article>
+      }
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-header"><h2>Veiculos</h2></div>
+    <form class="form-grid" [formGroup]="veiculoForm" (ngSubmit)="salvarVeiculo()">
+      <label>Prefixo<input formControlName="prefixo" /></label>
+      <label>Placa<input formControlName="placa" /></label>
+      <label>Tipo
+        <select formControlName="tipo">
+          @for (item of tiposVeiculo; track item) {
+            <option [value]="item">{{ label(item) }}</option>
+          }
+        </select>
+      </label>
+      <label>Status
+        <select formControlName="status">
+          @for (item of status; track item) {
+            <option [value]="item">{{ label(item) }}</option>
+          }
+        </select>
+      </label>
+      <label class="full">Observacao<input formControlName="observacao" /></label>
+      <button class="button" type="submit">Salvar veiculo</button>
+    </form>
+    <div class="compact-list">
+      @for (veiculo of veiculos; track veiculo.id) {
+        <article><strong>{{ veiculo.prefixo }}</strong><span>{{ veiculo.placa }} · {{ label(veiculo.status) }}</span></article>
+      }
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-header"><h2>Equipes</h2></div>
+    <form class="form-grid" [formGroup]="equipeForm" (ngSubmit)="salvarEquipe()">
+      <label>Nome<input formControlName="nome" /></label>
+      <label>Setor<input formControlName="setor" /></label>
+      <label>Telefone<input formControlName="telefone" /></label>
+      <label>Status
+        <select formControlName="status">
+          @for (item of status; track item) {
+            <option [value]="item">{{ label(item) }}</option>
+          }
+        </select>
+      </label>
+      <label class="full">Veiculo
+        <select formControlName="veiculoId">
+          <option value="">Sem vinculo</option>
+          @for (veiculo of veiculos; track veiculo.id) {
+            <option [value]="veiculo.id">{{ veiculo.prefixo }} · {{ veiculo.placa }}</option>
+          }
+        </select>
+      </label>
+      <button class="button" type="submit">Salvar equipe</button>
+    </form>
+    <div class="compact-list">
+      @for (equipe of equipes; track equipe.id) {
+        <article><strong>{{ equipe.nome }}</strong><span>{{ equipe.setor }} · {{ label(equipe.status) }}</span></article>
+      }
+    </div>
+  </div>
+</section>

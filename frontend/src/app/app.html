@@ -1,0 +1,28 @@
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">VC</span>
+      <div>
+        <strong>Vitalis Cidalia</strong>
+        <small>Operacao de emergencia</small>
+      </div>
+    </div>
+
+    <nav>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Painel</a>
+      <a routerLink="/ocorrencias" routerLinkActive="active">Ocorrencias</a>
+      <a routerLink="/atendimentos" routerLinkActive="active">Atendimentos</a>
+      <a routerLink="/recursos" routerLinkActive="active">Recursos</a>
+      <a routerLink="/consulta-avancada" routerLinkActive="active">Consulta avancada</a>
+    </nav>
+
+    <div class="team">
+      <span>5o Periodo</span>
+      <strong>Engenharia de Software</strong>
+    </div>
+  </aside>
+
+  <main class="content">
+    <router-outlet />
+  </main>
+</div>

@@ -1,0 +1,80 @@
+<header class="page-header">
+  <div>
+    <p class="eyebrow">Central operacional</p>
+    <h1>Painel de atendimentos</h1>
+  </div>
+  <button type="button" class="button secondary" (click)="carregar()">Atualizar</button>
+</header>
+
+@if (erro) {
+  <div class="alert">{{ erro }}</div>
+}
+
+@if (resumo; as dados) {
+  <section class="metric-grid">
+    <article class="metric">
+      <span>Ocorrencias abertas</span>
+      <strong>{{ dados.ocorrenciasAbertas }}</strong>
+    </article>
+    <article class="metric danger">
+      <span>Criticas</span>
+      <strong>{{ dados.ocorrenciasCriticas }}</strong>
+    </article>
+    <article class="metric">
+      <span>Equipes disponiveis</span>
+      <strong>{{ dados.equipesDisponiveis }}</strong>
+    </article>
+    <article class="metric">
+      <span>Veiculos disponiveis</span>
+      <strong>{{ dados.veiculosDisponiveis }}</strong>
+    </article>
+    <article class="metric">
+      <span>Em atendimento</span>
+      <strong>{{ dados.atendimentosEmAndamento }}</strong>
+    </article>
+  </section>
+
+  <section class="split">
+    <div class="panel">
+      <div class="panel-header">
+        <h2>Ultimas ocorrencias</h2>
+        <a routerLink="/ocorrencias">Abrir</a>
+      </div>
+      <div class="list">
+        @for (ocorrencia of dados.ultimasOcorrencias; track ocorrencia.id) {
+          <article class="row">
+            <div>
+              <strong>{{ ocorrencia.protocolo }}</strong>
+              <span>{{ ocorrencia.solicitanteNome }} · {{ ocorrencia.bairro }}</span>
+            </div>
+            <span class="badge" [class.hot]="ocorrencia.prioridade === 'CRITICA'">{{ label(ocorrencia.prioridade) }}</span>
+          </article>
+        } @empty {
+          <p class="empty">Nenhuma ocorrencia registrada.</p>
+        }
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <h2>Atendimentos recentes</h2>
+        <a routerLink="/atendimentos">Abrir</a>
+      </div>
+      <div class="list">
+        @for (atendimento of dados.ultimosAtendimentos; track atendimento.id) {
+          <article class="row">
+            <div>
+              <strong>{{ atendimento.codigo }}</strong>
+              <span>{{ atendimento.equipe.nome }} · {{ atendimento.veiculo.prefixo }}</span>
+            </div>
+            <span class="badge">{{ label(atendimento.status) }}</span>
+          </article>
+        } @empty {
+          <p class="empty">Nenhum atendimento despachado.</p>
+        }
+      </div>
+    </div>
+  </section>
+} @else if (carregando) {
+  <div class="panel">Carregando painel...</div>
+}

@@ -1,0 +1,74 @@
+<header class="page-header">
+  <div>
+    <p class="eyebrow">Relatorios administrativos</p>
+    <h1>Consulta avancada</h1>
+  </div>
+</header>
+
+@if (erro) {
+  <div class="alert">{{ erro }}</div>
+}
+
+<section class="split wide-left">
+  <div class="panel">
+    <div class="panel-header"><h2>Comando</h2></div>
+    <form class="form-grid" [formGroup]="form" (ngSubmit)="executar()">
+      <label class="full">
+        Expressao
+        <textarea rows="5" formControlName="comando"></textarea>
+      </label>
+      <button class="button" type="submit">Executar</button>
+    </form>
+  </div>
+
+  <div class="panel">
+    <div class="panel-header"><h2>Resultado sintatico</h2></div>
+    @if (resultado; as dados) {
+      <div class="syntax">
+        <strong>Tokens</strong>
+        <div class="token-list">
+          @for (token of dados.tokens; track token) {
+            <code>{{ token }}</code>
+          }
+        </div>
+        <strong>Arvore</strong>
+        <code class="tree">{{ dados.arvoreSintatica }}</code>
+        <strong>{{ dados.totalEncontrado }} ocorrencia(s)</strong>
+      </div>
+    } @else {
+      <p class="empty">Sem execucao registrada.</p>
+    }
+  </div>
+</section>
+
+@if (resultado; as dados) {
+  <section class="panel">
+    <div class="panel-header"><h2>Ocorrencias retornadas</h2></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Protocolo</th>
+            <th>Tipo</th>
+            <th>Prioridade</th>
+            <th>Setor</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (ocorrencia of dados.resultados; track ocorrencia.id) {
+            <tr>
+              <td>{{ ocorrencia.protocolo }}</td>
+              <td>{{ label(ocorrencia.tipo) }}</td>
+              <td>{{ label(ocorrencia.prioridade) }}</td>
+              <td>{{ ocorrencia.pontoDestino.setor }}</td>
+              <td>{{ label(ocorrencia.status) }}</td>
+            </tr>
+          } @empty {
+            <tr><td colspan="5">Nenhuma ocorrencia encontrada.</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+}

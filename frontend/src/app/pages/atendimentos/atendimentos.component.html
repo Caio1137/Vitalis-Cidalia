@@ -1,0 +1,71 @@
+<header class="page-header">
+  <div>
+    <p class="eyebrow">Despacho e acompanhamento</p>
+    <h1>Atendimentos</h1>
+  </div>
+</header>
+
+@if (erro) {
+  <div class="alert">{{ erro }}</div>
+}
+
+<section class="split">
+  <div class="panel">
+    <div class="panel-header"><h2>Novo despacho</h2></div>
+    <form class="form-grid" [formGroup]="form" (ngSubmit)="salvar()">
+      <label class="full">Ocorrencia
+        <select formControlName="ocorrenciaId">
+          <option value="">Selecionar</option>
+          @for (ocorrencia of ocorrencias; track ocorrencia.id) {
+            <option [value]="ocorrencia.id">{{ ocorrencia.protocolo }} · {{ ocorrencia.solicitanteNome }}</option>
+          }
+        </select>
+      </label>
+      <label>Equipe
+        <select formControlName="equipeId">
+          <option value="">Selecionar</option>
+          @for (equipe of equipes; track equipe.id) {
+            <option [value]="equipe.id">{{ equipe.nome }} · {{ label(equipe.status) }}</option>
+          }
+        </select>
+      </label>
+      <label>Veiculo
+        <select formControlName="veiculoId">
+          <option value="">Selecionar</option>
+          @for (veiculo of veiculos; track veiculo.id) {
+            <option [value]="veiculo.id">{{ veiculo.prefixo }} · {{ label(veiculo.status) }}</option>
+          }
+        </select>
+      </label>
+      <label>Distancia km<input type="number" min="0.1" formControlName="distanciaKm" /></label>
+      <label>Tempo min<input type="number" min="1" formControlName="tempoEstimadoMinutos" /></label>
+      <label class="full">Rota<textarea rows="3" formControlName="rotaResumo"></textarea></label>
+      <label class="full">Observacoes<textarea rows="3" formControlName="observacoes"></textarea></label>
+      <button class="button" type="submit">Despachar</button>
+    </form>
+  </div>
+
+  <div class="panel">
+    <div class="panel-header">
+      <h2>Atendimentos ativos</h2>
+      <button type="button" class="button secondary" (click)="carregar()">Atualizar</button>
+    </div>
+    <div class="list">
+      @for (atendimento of atendimentos; track atendimento.id) {
+        <article class="row stacked">
+          <div>
+            <strong>{{ atendimento.codigo }} · {{ atendimento.ocorrencia.protocolo }}</strong>
+            <span>{{ atendimento.equipe.nome }} · {{ atendimento.veiculo.prefixo }} · {{ atendimento.rotaResumo }}</span>
+          </div>
+          <select #novoStatus [value]="atendimento.status" (change)="atualizar(atendimento, novoStatus.value)">
+            @for (item of status; track item) {
+              <option [value]="item">{{ label(item) }}</option>
+            }
+          </select>
+        </article>
+      } @empty {
+        <p class="empty">Nenhum atendimento cadastrado.</p>
+      }
+    </div>
+  </div>
+</section>
