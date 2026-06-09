@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.1] - 2026-06-09
+
+### Fixed
+
+- Ajustado o pipeline CI para executar o Maven Wrapper corretamente no GitHub Actions.
+
 ## [1.0.0] - 2026-06-09
 
 ### Added
