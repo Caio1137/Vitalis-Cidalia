@@ -17,6 +17,9 @@ Os comentarios principais estao no codigo em:
 
 - `AbstractCrudService.java`
 - `CodigoOperacionalFactory.java`
+- `OcorrenciaMapper.java`
+- `ApiExceptionHandler.java`
+- `DashboardService.java`
 - `RegexPatterns.java`
 
 Na apresentacao, o grupo pode mostrar estes arquivos e explicar por que cada padrao foi usado sem forcar complexidade desnecessaria.

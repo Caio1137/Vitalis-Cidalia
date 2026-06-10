@@ -25,7 +25,7 @@ docs/                    Documentacao do Projeto Integrador
 Pré-requisitos:
 
 - Java 17 instalado.
-- Node.js e npm instalados.
+- Node.js 20 LTS e npm instalados.
 - PostgreSQL instalado e rodando.
 
 Banco esperado:
