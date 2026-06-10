@@ -74,6 +74,20 @@ Branches utilizadas:
 
 Na revisao final, a equipe consolidou a ligacao entre requisitos, Issues, branches, Pull Requests, arquivos principais e releases. O objetivo desta rastreabilidade e permitir auditoria do trabalho entregue sem alterar o historico original do GitHub.
 
+## Protecao de branches
+
+A branch protection esta ativa no GitHub para as branches principais do fluxo:
+
+| Branch | PR obrigatorio | Revisoes | Checks obrigatorios | Conversas resolvidas | Force push e exclusao |
+|---|---|---|---|---|---|
+| `main` | Sim | 1 aprovacao | Backend e frontend | Sim | Bloqueados |
+| `develop` | Sim | 1 aprovacao | Backend e frontend | Sim | Bloqueados |
+
+Checks obrigatorios:
+
+- `Backend - Java 17 / Maven`
+- `Frontend - Angular / Node 20`
+
 ## Auditoria
 
 Auditoria automatica:
