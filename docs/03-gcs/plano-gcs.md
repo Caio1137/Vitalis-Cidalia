@@ -36,7 +36,7 @@ Versao de entrega: `1.0.0`.
 
 ## Controle de mudancas
 
-Fluxo planejado:
+Fluxo planejado para alteracoes:
 
 1. Criar Issue no GitHub para cada requisito.
 2. Criar branch a partir de `develop`.
@@ -46,14 +46,33 @@ Fluxo planejado:
 6. Fazer merge.
 7. Registrar release em `CHANGELOG.md`.
 
-Branches sugeridas:
+Evidencias registradas:
+
+- Issues de Change Request para requisitos funcionais e entregas tecnicas.
+- Branches de feature/documentacao separadas por requisito.
+- Pull Requests vinculados aos requisitos e validados pelo GitHub Actions.
+- Tags e releases para marcar baselines entregaveis.
+- Matriz de rastreabilidade com Issue, branch, PR, arquivos e release.
+
+Branches utilizadas:
 
 - `feature/rf01-pontos-atendimento`
-- `feature/rf02-veiculos-equipes`
+- `feature/rf02-veiculos`
+- `feature/rf03-equipes`
 - `feature/rf04-ocorrencias`
-- `feature/rf06-atendimentos`
+- `feature/rf05-filtros-ocorrencias`
+- `feature/rf06-despacho-atendimento`
+- `feature/rf07-status-atendimento`
+- `feature/rf08-dashboard`
 - `feature/rf09-consulta-avancada`
-- `docs/entrega-projeto-integrador`
+- `docs/lfa-regex-automatos-gramatica`
+- `docs/gcs-baselines-ci-rastreabilidade`
+- `docs/aws-arquitetura-custos`
+- `docs/ajustar-rastreabilidade-issues-prs`
+
+## Observacao sobre rastreabilidade
+
+Na revisao final, a equipe consolidou a ligacao entre requisitos, Issues, branches, Pull Requests, arquivos principais e releases. O objetivo desta rastreabilidade e permitir auditoria do trabalho entregue sem alterar o historico original do GitHub.
 
 ## Auditoria
 
