@@ -19,7 +19,7 @@ assignees: ""
 
 ## Criterios de aceite
 
-- [ ] 
+- [ ]
 
 ## Release prevista
 

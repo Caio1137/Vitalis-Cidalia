@@ -5,6 +5,7 @@ import {
   Equipe,
   PontoAtendimento,
   STATUS_OPERACIONAL,
+  StatusOperacional,
   TIPOS_PONTO,
   TIPOS_VEICULO,
   Veiculo,
@@ -96,6 +97,36 @@ export class RecursosComponent implements OnInit {
     this.service.criarEquipe(payload).subscribe({
       next: () => {
         this.equipeForm.patchValue({ nome: '', setor: '', veiculoId: '' });
+        this.carregar();
+      },
+      error: (error) => (this.erro = this.mensagemErro(error)),
+    });
+  }
+
+  inativarPonto(ponto: PontoAtendimento): void {
+    this.service.inativarPonto(ponto.id).subscribe({
+      next: () => {
+        this.erro = '';
+        this.carregar();
+      },
+      error: (error) => (this.erro = this.mensagemErro(error)),
+    });
+  }
+
+  atualizarStatusVeiculo(veiculo: Veiculo, status: string): void {
+    this.service.atualizarStatusVeiculo(veiculo.id, status as StatusOperacional).subscribe({
+      next: () => {
+        this.erro = '';
+        this.carregar();
+      },
+      error: (error) => (this.erro = this.mensagemErro(error)),
+    });
+  }
+
+  atualizarStatusEquipe(equipe: Equipe, status: string): void {
+    this.service.atualizarStatusEquipe(equipe.id, status as StatusOperacional).subscribe({
+      next: () => {
+        this.erro = '';
         this.carregar();
       },
       error: (error) => (this.erro = this.mensagemErro(error)),

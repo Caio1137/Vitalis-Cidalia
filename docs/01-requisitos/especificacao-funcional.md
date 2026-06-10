@@ -66,6 +66,7 @@ Fora do escopo:
 |---|---|---|
 | GET | `/api/dashboard` | Indicadores operacionais. |
 | GET/POST | `/api/pontos-atendimento` | Listar e cadastrar pontos. |
+| DELETE | `/api/pontos-atendimento/{id}` | Inativar ponto sem ocorrencias vinculadas. |
 | GET/POST | `/api/veiculos` | Listar e cadastrar veiculos. |
 | PATCH | `/api/veiculos/{id}/status` | Alterar status do veiculo. |
 | GET/POST | `/api/equipes` | Listar e cadastrar equipes. |

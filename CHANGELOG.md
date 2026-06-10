@@ -1,5 +1,18 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+
+- Restaurados localmente os artefatos `.github` de CI, Issue template e Pull Request template.
+- Incluido perfil `prod` do backend com variaveis obrigatorias e validacao de schema.
+- Expostas no frontend as acoes de inativar ponto e alterar status operacional de veiculos e equipes.
+
+### Changed
+
+- Consulta avancada ajustada para analisador sintatico sem estado compartilhado no bean Spring.
+- Documentacao funcional e de Padroes de Projeto alinhada aos ajustes finais.
+
 ## [1.0.2] - 2026-06-10
 
 ### Changed

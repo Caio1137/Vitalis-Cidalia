@@ -177,6 +177,19 @@ h2 {
   align-items: flex-start;
 }
 
+.compact-list article > div {
+  min-width: 0;
+}
+
+.compact-list article select {
+  max-width: 180px;
+}
+
+.compact-action {
+  min-width: 96px;
+  white-space: nowrap;
+}
+
 .row strong,
 .row span,
 .compact-list strong,

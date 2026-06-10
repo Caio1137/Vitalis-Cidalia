@@ -62,6 +62,20 @@ Portas padrao:
 - API: `http://localhost:8080/api`
 - Angular: `http://localhost:4200`
 
+## Perfil de producao
+
+O perfil padrao foi mantido para demonstracao local com PostgreSQL. Para uma implantacao real, use o perfil `prod`, que exige variaveis de ambiente e valida o schema do banco em vez de atualiza-lo automaticamente:
+
+```powershell
+$env:SPRING_PROFILES_ACTIVE="prod"
+$env:DB_URL="jdbc:postgresql://host:5432/vitalis_cidalia"
+$env:DB_USERNAME="usuario"
+$env:DB_PASSWORD="senha"
+$env:CORS_ALLOWED_ORIGIN="https://dominio-do-frontend"
+cd backend
+.\mvnw.cmd spring-boot:run
+```
+
 ## Funcionalidades
 
 - Cadastro e acompanhamento de ocorrencias.
@@ -85,4 +99,3 @@ Portas padrao:
 
 Remoto definido para entrega: `https://github.com/Caio1137/Vitalis-Cidalia.git`
 
-Nenhum servidor precisa ficar rodando depois dos testes locais.

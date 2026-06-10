@@ -4,6 +4,7 @@ import br.com.vitalis.cidalia.domain.Ocorrencia;
 
 public class AndExpression implements ConsultaExpression {
 
+    // Padrao Composite: combina duas expressoes, que podem ser folhas ou outras composicoes.
     private final ConsultaExpression esquerda;
     private final ConsultaExpression direita;
 

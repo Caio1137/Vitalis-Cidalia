@@ -30,7 +30,13 @@
     </form>
     <div class="compact-list">
       @for (ponto of pontos; track ponto.id) {
-        <article><strong>{{ ponto.nome }}</strong><span>{{ label(ponto.tipo) }} · {{ ponto.setor }}</span></article>
+        <article>
+          <div>
+            <strong>{{ ponto.nome }}</strong>
+            <span>{{ label(ponto.tipo) }} · {{ ponto.setor }}</span>
+          </div>
+          <button type="button" class="button secondary compact-action" (click)="inativarPonto(ponto)">Inativar</button>
+        </article>
       }
     </div>
   </div>
@@ -59,7 +65,17 @@
     </form>
     <div class="compact-list">
       @for (veiculo of veiculos; track veiculo.id) {
-        <article><strong>{{ veiculo.prefixo }}</strong><span>{{ veiculo.placa }} · {{ label(veiculo.status) }}</span></article>
+        <article>
+          <div>
+            <strong>{{ veiculo.prefixo }}</strong>
+            <span>{{ veiculo.placa }} · {{ label(veiculo.status) }}</span>
+          </div>
+          <select [value]="veiculo.status" (change)="atualizarStatusVeiculo(veiculo, $any($event.target).value)">
+            @for (item of status; track item) {
+              <option [value]="item">{{ label(item) }}</option>
+            }
+          </select>
+        </article>
       }
     </div>
   </div>
@@ -89,7 +105,17 @@
     </form>
     <div class="compact-list">
       @for (equipe of equipes; track equipe.id) {
-        <article><strong>{{ equipe.nome }}</strong><span>{{ equipe.setor }} · {{ label(equipe.status) }}</span></article>
+        <article>
+          <div>
+            <strong>{{ equipe.nome }}</strong>
+            <span>{{ equipe.setor }} · {{ label(equipe.status) }}</span>
+          </div>
+          <select [value]="equipe.status" (change)="atualizarStatusEquipe(equipe, $any($event.target).value)">
+            @for (item of status; track item) {
+              <option [value]="item">{{ label(item) }}</option>
+            }
+          </select>
+        </article>
       }
     </div>
   </div>

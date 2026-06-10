@@ -8,6 +8,7 @@
 | Factory Method | `CodigoOperacionalFactory`. | Cria protocolo de ocorrencia e codigo de atendimento em um ponto unico. |
 | Adapter | Pacote `mapper`. | Adapta entidades JPA para DTOs usados pela API. |
 | Template Method | `AbstractCrudService`. | Define o fluxo `salvar -> validar -> persistir`; services especializam validacoes. |
+| Composite | `ConsultaExpression`, `ConditionExpression` e `AndExpression`. | Monta a arvore da consulta avancada combinando condicoes simples e operadores logicos. |
 | Iterator | Uso de `stream()` no backend e `@for` no Angular. | Percorre colecoes de ocorrencias, atendimentos e recursos. |
 | Decorator | `ApiExceptionHandler` sobre respostas de erro. | Acrescenta estrutura padronizada sem mudar a excecao original. |
 
@@ -18,8 +19,8 @@ Os comentarios principais estao no codigo em:
 - `AbstractCrudService.java`
 - `CodigoOperacionalFactory.java`
 - `OcorrenciaMapper.java`
+- `ConsultaExpression.java`
+- `AndExpression.java`
 - `ApiExceptionHandler.java`
 - `DashboardService.java`
 - `RegexPatterns.java`
-
-Na apresentacao, o grupo pode mostrar estes arquivos e explicar por que cada padrao foi usado sem forcar complexidade desnecessaria.

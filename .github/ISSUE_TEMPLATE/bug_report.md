@@ -20,4 +20,4 @@ assignees: ""
 
 ## Criterios de aceite
 
-- [ ] 
+- [ ]

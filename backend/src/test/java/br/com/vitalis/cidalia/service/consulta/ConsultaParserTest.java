@@ -32,6 +32,15 @@ class ConsultaParserTest {
                 .hasMessageContaining("valor textual entre aspas");
     }
 
+    @Test
+    void deveAnalisarChamadasSequenciaisSemCompartilharEstado() {
+        var primeira = parser.analisar(lexer.analisar("parametro.tipo = \"CARDIACA\""));
+        var segunda = parser.analisar(lexer.analisar("parametro.prioridade != \"BAIXA\""));
+
+        assertThat(primeira.matches(ocorrenciaValida())).isTrue();
+        assertThat(segunda.matches(ocorrenciaValida())).isTrue();
+    }
+
     private Ocorrencia ocorrenciaValida() {
         var ponto = new PontoAtendimento();
         ponto.setNome("Hospital Municipal Norte");
