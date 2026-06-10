@@ -23,6 +23,7 @@ Repositorio publico previsto: `https://github.com/Caio1137/Vitalis-Cidalia.git`
 |---|---|---|---|
 | BL0 | `v0.1.0` | Estrutura inicial, README, backend/frontend criados, docs base. | Projeto compila localmente e CI configurado. |
 | BL1 | `v1.0.0` | Sistema funcional com ocorrencias, recursos, atendimentos, dashboard, consulta avancada e documentacao final. | Backend e frontend com build verde, docs revisados e matriz atualizada. |
+| BL2 | `v1.0.2` | Entrega final revisada apos conferencia do PDF, com GCS, versao, rastreabilidade e branch protection atualizadas. | CI verde, changelog atualizado, release final publicada e pasta limpa para entrega. |
 
 ## Versionamento
 
@@ -32,7 +33,7 @@ O projeto usa Semantic Versioning:
 - `MINOR`: nova funcionalidade compativel.
 - `PATCH`: correcao de bug ou ajuste pequeno.
 
-Versao de entrega: `1.0.0`.
+Versao de entrega: `1.0.2`.
 
 ## Controle de mudancas
 
@@ -69,6 +70,8 @@ Branches utilizadas:
 - `docs/gcs-baselines-ci-rastreabilidade`
 - `docs/aws-arquitetura-custos`
 - `docs/ajustar-rastreabilidade-issues-prs`
+- `docs/registrar-branch-protection`
+- `docs/fechamento-v1.0.2`
 
 ## Observacao sobre rastreabilidade
 

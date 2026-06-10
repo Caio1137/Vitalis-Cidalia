@@ -14,6 +14,7 @@ public class OcorrenciaMapper {
         this.pontoMapper = pontoMapper;
     }
 
+    // Padrao Adapter: converte DTO de entrada para entidade JPA usada pelo dominio.
     public Ocorrencia toEntity(OcorrenciaRequest request) {
         var ocorrencia = new Ocorrencia();
         ocorrencia.setSolicitanteNome(request.solicitanteNome());
@@ -27,6 +28,7 @@ public class OcorrenciaMapper {
         return ocorrencia;
     }
 
+    // Padrao Adapter: adapta a entidade persistida para o contrato de resposta da API.
     public OcorrenciaResponse toResponse(Ocorrencia ocorrencia) {
         return new OcorrenciaResponse(
                 ocorrencia.getId(),
