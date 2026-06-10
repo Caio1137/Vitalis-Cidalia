@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>br.com.vitalis</groupId>
 	<artifactId>vitalis-cidalia-api</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.2</version>
 	<name>vitalis-cidalia-api</name>
 	<description>Sistema de gestao de atendimentos de emergencia de Cidalia</description>
 	<url/>

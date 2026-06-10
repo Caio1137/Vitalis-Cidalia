@@ -14,6 +14,9 @@
 | LFA | #10 | `docs/lfa-regex-automatos-gramatica` | #22 | `RegexPatterns`, `docs/02-lfa/*` | v1.0.0 |
 | GCS | #11 | `docs/gcs-baselines-ci-rastreabilidade` | #23 | `docs/03-gcs/*`, `.github/workflows/ci.yml`, `CHANGELOG.md` | v1.0.1 |
 | AWS | #12 | `docs/aws-arquitetura-custos` | #24 | `docs/04-aws/arquitetura-aws.md` | v1.0.0 |
+| GCS-AJUSTE | #25 | `docs/ajustar-rastreabilidade-issues-prs` | #26/#27 | `docs/03-gcs/matriz-rastreabilidade.md`, `docs/03-gcs/plano-gcs.md` | v1.0.2 |
+| GCS-PROTECAO | #28 | `docs/registrar-branch-protection` | #29/#30 | `docs/03-gcs/plano-gcs.md` | v1.0.2 |
+| GCS-FECHAMENTO | #31 | `docs/fechamento-v1.0.2` | #32 | `CHANGELOG.md`, `backend/pom.xml`, `frontend/package.json`, `docs/03-gcs/*` | v1.0.2 |
 
 ## Observacao de auditoria
 

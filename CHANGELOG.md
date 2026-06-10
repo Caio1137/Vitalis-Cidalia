@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.2] - 2026-06-10
+
+### Changed
+
+- Atualizada a versao final da entrega para `v1.0.2`.
+- Registrada a baseline final de auditoria em GCS.
+- Reforcada a rastreabilidade de Issues, branches, Pull Requests, arquivos e releases.
+- Documentada a branch protection ativa em `main` e `develop`.
+- Ajustada a documentacao de Padroes de Projeto para manter apenas os padroes aplicados diretamente no sistema.
+
+### Fixed
+
+- Removida duplicidade de `spring.application.name` na configuracao do backend.
+- Incluido comentario de aplicacao do padrao Adapter no mapper de ocorrencias.
+
 ## [1.0.1] - 2026-06-09
 
 ### Fixed
