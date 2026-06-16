@@ -10,6 +10,7 @@ import br.com.vitalis.cidalia.exception.ResourceNotFoundException;
 import br.com.vitalis.cidalia.mapper.OcorrenciaMapper;
 import br.com.vitalis.cidalia.repository.OcorrenciaRepository;
 import java.util.List;
+import java.util.Locale;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,7 +36,8 @@ public class OcorrenciaService {
 
     @Transactional(readOnly = true)
     public List<OcorrenciaResponse> listar(StatusOcorrencia status, PrioridadeOcorrencia prioridade, TipoOcorrencia tipo, String setor) {
-        return repository.filtrar(status, prioridade, tipo, setor).stream()
+        var setorNormalizado = setor == null || setor.isBlank() ? null : setor.toLowerCase(Locale.ROOT);
+        return repository.filtrar(status, prioridade, tipo, setorNormalizado).stream()
                 .map(mapper::toResponse)
                 .toList();
     }

@@ -24,7 +24,7 @@ public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long> {
             where (:status is null or o.status = :status)
               and (:prioridade is null or o.prioridade = :prioridade)
               and (:tipo is null or o.tipo = :tipo)
-              and (:setor is null or lower(p.setor) = lower(:setor))
+              and (:setor is null or lower(p.setor) = :setor)
             order by o.registradaEm desc
             """)
     List<Ocorrencia> filtrar(

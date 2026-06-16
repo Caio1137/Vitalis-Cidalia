@@ -47,7 +47,7 @@
 
   <div class="panel">
     <div class="panel-header">
-      <h2>Atendimentos ativos</h2>
+      <h2>Atendimentos registrados</h2>
       <button type="button" class="button secondary" (click)="carregar()">Atualizar</button>
     </div>
     <div class="list">
@@ -59,7 +59,7 @@
           </div>
           <select #novoStatus [value]="atendimento.status" (change)="atualizar(atendimento, novoStatus.value)">
             @for (item of status; track item) {
-              <option [value]="item">{{ label(item) }}</option>
+              <option [value]="item" [selected]="item === atendimento.status">{{ label(item) }}</option>
             }
           </select>
         </article>

@@ -39,7 +39,7 @@ Se seu Postgres usar outro usuario ou senha:
 ```powershell
 $env:DB_URL="jdbc:postgresql://localhost:5432/vitalis_cidalia"
 $env:DB_USERNAME="postgres"
-$env:DB_PASSWORD="postgres"
+$env:DB_PASSWORD="1234"
 ```
 
 Backend:
@@ -53,8 +53,16 @@ Frontend:
 
 ```powershell
 cd frontend
-npm.cmd install
-npm.cmd start
+npm install
+npm start
+```
+
+Se o PowerShell informar que `npm` nao foi reconhecido, atualize o `PATH` da janela atual e execute novamente:
+
+```powershell
+$env:Path = "C:\Program Files\nodejs;C:\Users\caioc\AppData\Roaming\npm;$env:Path"
+npm install
+npm start
 ```
 
 Portas padrao:
@@ -98,4 +106,3 @@ cd backend
 ## Repositorio
 
 Remoto definido para entrega: `https://github.com/Caio1137/Vitalis-Cidalia.git`
-

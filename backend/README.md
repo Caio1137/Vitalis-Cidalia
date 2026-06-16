@@ -14,7 +14,7 @@ Variaveis aceitas:
 ```powershell
 $env:DB_URL="jdbc:postgresql://localhost:5432/vitalis_cidalia"
 $env:DB_USERNAME="postgres"
-$env:DB_PASSWORD="postgres"
+$env:DB_PASSWORD="1234"
 ```
 
 Perfil de producao:
