@@ -88,9 +88,24 @@
       <h2>Nova ocorrencia</h2>
     </div>
     <form class="form-grid" [formGroup]="form" (ngSubmit)="salvar()">
-      <label>Solicitante<input formControlName="solicitanteNome" /></label>
-      <label>CPF/CNPJ<input formControlName="solicitanteDocumento" /></label>
-      <label>Telefone<input formControlName="telefoneSolicitante" /></label>
+      <label>Solicitante
+        <input formControlName="solicitanteNome" />
+        @if (campoInvalido('solicitanteNome')) {
+          <small class="field-error">Informe ao menos 3 caracteres.</small>
+        }
+      </label>
+      <label>CPF/CNPJ
+        <input formControlName="solicitanteDocumento" />
+        @if (campoInvalido('solicitanteDocumento')) {
+          <small class="field-error">Informe um documento valido.</small>
+        }
+      </label>
+      <label>Telefone
+        <input formControlName="telefoneSolicitante" />
+        @if (campoInvalido('telefoneSolicitante')) {
+          <small class="field-error">Informe um telefone valido.</small>
+        }
+      </label>
       <label>Tipo
         <select formControlName="tipo">
           @for (item of tipos; track item) {
@@ -109,13 +124,31 @@
         <select formControlName="pontoDestinoId">
           <option value="">Selecionar</option>
           @for (ponto of pontos; track ponto.id) {
-            <option [value]="ponto.id">{{ ponto.nome }} · {{ ponto.setor }}</option>
+            <option [value]="ponto.id">{{ ponto.nome }} - {{ ponto.setor }}</option>
           }
         </select>
+        @if (campoInvalido('pontoDestinoId')) {
+          <small class="field-error">Selecione um ponto.</small>
+        }
       </label>
-      <label>Endereco<input formControlName="endereco" /></label>
-      <label>Bairro<input formControlName="bairro" /></label>
-      <label class="full">Descricao<textarea formControlName="descricao" rows="4"></textarea></label>
+      <label>Endereco
+        <input formControlName="endereco" />
+        @if (campoInvalido('endereco')) {
+          <small class="field-error">Informe o endereco.</small>
+        }
+      </label>
+      <label>Bairro
+        <input formControlName="bairro" />
+        @if (campoInvalido('bairro')) {
+          <small class="field-error">Informe o bairro.</small>
+        }
+      </label>
+      <label class="full">Descricao
+        <textarea formControlName="descricao" rows="4"></textarea>
+        @if (campoInvalido('descricao')) {
+          <small class="field-error">Informe ao menos 10 caracteres.</small>
+        }
+      </label>
       <button class="button" type="submit">Registrar</button>
     </form>
   </div>

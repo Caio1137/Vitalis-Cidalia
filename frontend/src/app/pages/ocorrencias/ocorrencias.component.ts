@@ -30,6 +30,7 @@ export class OcorrenciasComponent implements OnInit {
   label = label;
   erro = '';
   sucesso = '';
+  tentouSalvar = false;
 
   filtros = this.fb.group({
     status: [''],
@@ -64,13 +65,18 @@ export class OcorrenciasComponent implements OnInit {
   }
 
   salvar(): void {
+    this.erro = '';
+    this.sucesso = '';
+    this.tentouSalvar = true;
     if (this.form.invalid) {
       this.form.markAllAsTouched();
+      this.erro = 'Preencha os campos obrigatorios da nova ocorrencia.';
       return;
     }
     const payload = { ...this.form.value, pontoDestinoId: Number(this.form.value.pontoDestinoId) };
     this.ocorrenciaService.criar(payload).subscribe({
       next: () => {
+        this.tentouSalvar = false;
         this.sucesso = 'Ocorrencia registrada.';
         this.form.patchValue({ endereco: '', bairro: '', descricao: '' });
         this.carregar();
@@ -91,6 +97,11 @@ export class OcorrenciasComponent implements OnInit {
       next: (pontos) => (this.pontos = pontos),
       error: () => (this.erro = 'Nao foi possivel carregar pontos de atendimento.'),
     });
+  }
+
+  campoInvalido(campo: string): boolean {
+    const controle = this.form.get(campo);
+    return !!controle && controle.invalid && (controle.touched || this.tentouSalvar);
   }
 
   private mensagemErro(error: any): string {
